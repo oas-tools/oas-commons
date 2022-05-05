@@ -1,0 +1,27 @@
+{
+  "name": "oas-devtools",
+  "type": "module",
+  "description": "Utility library for the development of new features and modules for oas-tools project",
+  "author": "ISA Group, University of Seville",
+  "license": "Apache-2.0",
+  "exports": {
+    "./middleware": "./src/middleware/index.js",
+    "./utils": "./src/utils/index.js"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "lint": "eslint src --ext .mjs --ext .js",
+    "format": "npm run lint -- --fix"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "winston": "^3.7.2"
+  }
+}
