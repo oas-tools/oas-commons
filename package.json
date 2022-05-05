@@ -11,6 +11,9 @@
   "files": [
     "src"
   ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
     "lint": "eslint src --ext .mjs --ext .js",
     "format": "npm run lint -- --fix"
@@ -23,5 +26,9 @@
   },
   "dependencies": {
     "winston": "^3.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oas-tools/oas-devtools.git"
   }
 }
