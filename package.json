@@ -30,5 +30,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oas-tools/oas-devtools.git"
-  }
+  },
+  "version": "0.1.0"
 }
