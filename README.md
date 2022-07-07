@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![NPM](https://nodei.co/npm/oas-tools.png?compact=true)](https://nodei.co/npm/oas-devtools/)
+[![NPM](https://nodei.co/npm/oas-devtools.png?compact=true)](https://nodei.co/npm/oas-devtools/)
 
 ![npm](https://img.shields.io/npm/v/oas-devtools)
 ![node-current](https://img.shields.io/node/v/oas-devtools)
