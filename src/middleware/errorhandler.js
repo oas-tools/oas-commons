@@ -31,7 +31,7 @@ export class OASErrorHandler extends OASBase {
       }
 
       /* Handle native errors */
-      if (err instanceof errors.RequestValidationError) {
+      if (err.name === "RequestValidationError") {
         logger.error(
           config.printStackTrace ? err.stack : `${err.name}: ${err.message}`
         );
@@ -41,11 +41,16 @@ export class OASErrorHandler extends OASBase {
           res.status(400);
         }
         res.send({ error: `${err.name}: ${err.message}` });
-      } else if (err instanceof errors.SecurityError) {
+      } else if (err.name === "SecurityError") {
         logger.error(
           config.printStackTrace ? err.stack : `${err.name}: ${err.message}`
         );
         res.status(401).send({ error: `${err.name}: ${err.message}` });
+      } else if (err.name === "AuthError") {
+        logger.error(
+          config.printStackTrace ? err.stack : `${err.name}: ${err.message}`
+        );
+        res.status(403).send({ error: `${err.name}: ${err.message}` });
       } else {
         logger.error(config.printStackTrace ? err.stack : err.message);
         res
