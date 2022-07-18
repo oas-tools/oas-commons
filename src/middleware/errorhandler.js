@@ -15,6 +15,7 @@ export class OASErrorHandler extends OASBase {
       );
     }
     return new OASErrorHandler(oasFile, (err, _req, res, next) => {
+
       /* Resets send behaviour */
       if (res.defaultSend) {
         res.send = res.defaultSend;
@@ -26,14 +27,14 @@ export class OASErrorHandler extends OASBase {
 
       /* Handler function */
       let responseBody;
-      let sendErr = (code, body) => {
+      const sendErr = (code, body) => {
         responseBody = body ?? { error: `${err.name}: ${err.message}` };
         res.status(code);
       }
 
       /* Handle errors */
       if (err.name === "RequestValidationError") {
-        if (/[\S\s]* content-type is not accepted [\S\s]*/.test(err.message)) {
+        if ((/[\S\s]* content-type is not accepted [\S\s]*/).test(err.message)) {
           sendErr(406);
         } else {
           sendErr(400);
