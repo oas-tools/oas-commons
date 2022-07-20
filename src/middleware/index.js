@@ -1,2 +1,2 @@
-export { OASBase } from "./base";
-export { OASErrorHandler } from "./errorhandler";
+export { OASBase } from "./base.js";
+export { OASErrorHandler } from "./errorhandler.js";

@@ -1,5 +1,5 @@
-import { errors, logger } from "../utils";
-import { OASBase } from "./base";
+import { errors, logger } from "../utils/index.js";
+import { OASBase } from "./base.js";
 
 export class OASErrorHandler extends OASBase {
   constructor(oasFile, middleware) {
