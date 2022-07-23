@@ -27,4 +27,3 @@ OAS Devtools is an utility library for the development of new features and modul
 - **Logger**: Logger class built through composition over a winston logger.
 - **Middleware**:
     - **OASBase**: Base class for all middlewares.
-    - **OASErrorHandler**: Customizable error handler middleware.
