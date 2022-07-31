@@ -5,6 +5,10 @@
   "author": "ISA Group, University of Seville",
   "license": "Apache-2.0",
   "exports": {
+    ".": {
+      "require": "./src/index.cjs",
+      "default": "./src/index.mjs"
+    },
     "./middleware": "./src/middleware/index.js",
     "./utils": "./src/utils/index.js"
   },
@@ -25,6 +29,7 @@
     "ajv": "^8.11.0",
     "ajv-draft-04": "^1.0.0",
     "ajv-formats": "^2.1.1",
+    "deasync": "^0.1.27",
     "winston": "^3.7.2"
   },
   "repository": {
