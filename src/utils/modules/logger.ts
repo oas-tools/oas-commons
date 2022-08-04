@@ -1,11 +1,18 @@
-import winston from "winston";
-const colorizer = winston.format.colorize();
+import {format, addColors, transports, createLogger, Logger as winstonLogger} from "winston";
+const colorizer = format.colorize();
+
+type loggerConfig = {
+  level: string,
+  logFile: boolean,
+  logFilePath : string,
+  customLogger : winstonLogger
+}
 
 const defaults = {
-  format: winston.format.combine(
-    winston.format.timestamp({ format: "YYYY-MM-DD HH:MM:SS" }),
-    winston.format.label({ label: "oas-tools" }),
-    winston.format.printf(({ timestamp, label, level, message }) =>
+  format: format.combine(
+    format.timestamp({ format: "YYYY-MM-DD HH:MM:SS" }),
+    format.label({ label: "oas-tools" }),
+    format.printf(({ timestamp, label, level, message }) =>
       [
         colorizer.colorize("date", timestamp),
         colorizer.colorize("label", `[${label}]`),
@@ -31,28 +38,27 @@ const defaults = {
 };
 
 class Logger {
-  config;
+  config : any;
 
-  #logger;
+  #logger : winstonLogger;
 
   constructor() {
-    winston.addColors(defaults.colors);
+    addColors(defaults.colors);
     this.config = {
       levels: defaults.levels,
       exitOnError: false,
       transports: [
-        new winston.transports.Console({
+        new transports.Console({
           level: "info",
           handleExceptions: true,
-          json: false,
           format: defaults.format,
         }),
       ],
     };
-    this.#logger = winston.createLogger(this.config);
+    this.#logger = createLogger(this.config);
   }
 
-  configure(conf) {
+  configure(conf : loggerConfig) {
     if (conf.customLogger) {
       this.#logger = conf.customLogger;
     } else {
@@ -60,15 +66,15 @@ class Logger {
       if (conf.logFile) {
         this.config.transports = [
           ...this.config.transports,
-          new winston.transports.File({
+          new transports.File({
             level: conf.level,
             filename: conf.logFilePath,
             handleExceptions: true,
             maxsize: 5242880, //5MB
-            format: winston.format.combine(
-              winston.format.timestamp({ format: "YYYY-MM-DD HH:MM:SS" }),
-              winston.format.label({ label: "oas-tools" }),
-              winston.format.printf(
+            format: format.combine(
+              format.timestamp({ format: "YYYY-MM-DD HH:MM:SS" }),
+              format.label({ label: "oas-tools" }),
+              format.printf(
                 ({ timestamp, label, level, message }) =>
                   `${timestamp} [${label}] ${level}: ${message}`
               )
@@ -76,27 +82,27 @@ class Logger {
           }),
         ];
       }
-      this.#logger = winston.createLogger(this.config);
+      this.#logger = createLogger(this.config);
     }
   }
 
-  debug(message) {
+  debug(message : string) {
     this.#logger.debug(message);
   }
 
-  info(message) {
+  info(message : string) {
     this.#logger.info(message);
   }
 
-  log(message) {
+  log(message : string) {
     this.info(message);
   }
 
-  warn(message) {
+  warn(message : string) {
     this.#logger.warn(message);
   }
 
-  error(message) {
+  error(message : string) {
     this.#logger.error(message);
   }
 }

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+      "module": "CommonJS",
+      "outDir": "dist",
+      "target": "ES2022",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "sourceMap": false,
+      "moduleResolution": "Node",
+      "declaration": true,
+      "resolveJsonModule": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.js"]
+}
