@@ -15,3 +15,6 @@ export const {
     UnsupportedError,
     ValidationError
 } = commons;
+
+export const validator = commons.validator;
+export const errors = commons.errors;
