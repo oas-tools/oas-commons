@@ -14,7 +14,7 @@
 ## About
 OAS Devtools is an utility library for the development of new features and modules for [oas-tools](https://github.com/oas-tools/oas-tools) project. It provides functions and classes that helps to easily create new functionality for OAS Tools servers.
 
-### v0.1.0 Features
+### v1.0.0 Features
 - **Error Classes**:
     - **ConfigError**: Error class for configuration errors.
     - **UnsupportedError**: Error class for unsupported features.
