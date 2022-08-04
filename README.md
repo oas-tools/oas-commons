@@ -4,9 +4,9 @@
 
 [![NPM](https://nodei.co/npm/@oas-tools/commons.png?compact=true)](https://nodei.co/npm/@oas-tools/commons/)
 
-![npm](https://img.shields.io/npm/v/oas-tools/commons)
-![node-current](https://img.shields.io/node/v/oas-tools/commons)
-![npm](https://img.shields.io/npm/dw/oas-tools/commons)
+![npm](https://img.shields.io/npm/v/@oas-tools/commons)
+![node-current](https://img.shields.io/node/v/@oas-tools/commons)
+![npm](https://img.shields.io/npm/dw/@oas-tools/commons)
 [![Known Vulnerabilities](https://snyk.io/test/github/oas-tools/oas-commons/main/badge.svg)](https://snyk.io/test/github/oas-tools/oas-commons)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-green.svg)](https://conventionalcommits.org)
 </div>
