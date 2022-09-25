@@ -41,7 +41,7 @@ export function validateOASFile(oasFilePath : string) {
   const valid = validate(oasFile);
   if (!valid) {
     throw new ValidationError(`Specification file does not meet OpenAPI ${version} schema.\n` +
-    `${validate.errors.map((e) => `- Validation failed at ${e.instancePath.split('/').map((s) => s.includes('~1')? `[${s.replaceAll('~1','/')}]` : s).join('/')} > ${e.message}`).join("\n")}`);
+    `${validate.errors.map((e) => `- Validation failed at ${e.instancePath.split('/').map((s) => s.includes('~1')? `[${s.replace(/~1/g,'/')}]` : s).join('/')} > ${e.message}`).join("\n")}`);
   }
 }
 
