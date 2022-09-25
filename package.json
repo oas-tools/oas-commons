@@ -1,6 +1,6 @@
 {
   "name": "@oas-tools/commons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "commonjs",
   "description": "Utility library for the development of new features and modules for oas-tools project",
   "author": "ISA Group, University of Seville",
