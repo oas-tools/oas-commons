@@ -1,3 +1,13 @@
+## [1.0.1](https://github.com/oas-tools/oas-commons/compare/v1.0.0...v1.0.1) (2022-09-25)
+
+
+### Bug Fixes
+
+* replaceAll not valid for Node.js v14 ([b550973](https://github.com/oas-tools/oas-commons/commit/b5509732267f37df837c268056d4b3cd85a79701))
+* Support for server & server templating ([a3c916e](https://github.com/oas-tools/oas-commons/commit/a3c916ea0c20cf0115e078abba0984c03c32f54d))
+
+
+
 # [1.0.0](https://github.com/oas-tools/oas-commons/compare/v0.1.1...v1.0.0) (2022-08-04)
 
 
