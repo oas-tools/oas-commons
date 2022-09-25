@@ -1,5 +1,6 @@
 {
   "name": "@oas-tools/commons",
+  "version": "1.0.0",
   "type": "commonjs",
   "description": "Utility library for the development of new features and modules for oas-tools project",
   "author": "ISA Group, University of Seville",
@@ -46,6 +47,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oas-tools/oas-commons.git"
-  },
-  "version": "1.0.0"
+  }
 }
