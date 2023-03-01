@@ -24,7 +24,7 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "build": "tsc && cp src/index.mjs dist/index.mjs && echo export * from '../typings' >> dist/index.d.ts",
+    "build": "tsc && cp src/index.mjs dist/index.mjs && printf 'export * from \"../typings\";' >> dist/index.d.ts",
     "lint": "eslint src --ext .mjs --ext .js",
     "format": "npm run lint -- --fix"
   },
