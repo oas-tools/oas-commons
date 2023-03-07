@@ -1,3 +1,13 @@
+## [1.0.2](https://github.com/oas-tools/oas-commons/compare/v1.0.1...v1.0.2) (2023-03-07)
+
+
+### Bug Fixes
+
+* Modified register method to avoid overlapping ([a4507cf](https://github.com/oas-tools/oas-commons/commit/a4507cfdb9baf8010745106d4dad6f6a6da74e32))
+* update build target to generate dist/index.d.ts ([1350dff](https://github.com/oas-tools/oas-commons/commit/1350dff1993979036fae97c8510dd958c911e1dc))
+
+
+
 ## [1.0.1](https://github.com/oas-tools/oas-commons/compare/v1.0.0...v1.0.1) (2022-09-25)
 
 
