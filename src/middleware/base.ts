@@ -23,7 +23,7 @@ export class OASBase implements Middleware {
     this.#oasFile = oasFile;
   }
 
-  register(app : Express) {
+  register(app : Express, path: string) {
     let servers : Array<String>;
     
     if (this.#oasFile.servers?.length > 0) {
@@ -32,24 +32,24 @@ export class OASBase implements Middleware {
       servers = ["/"];
     }
 
-    Object.entries(this.#oasFile.paths ?? {}).forEach(([path, methodObj]) => {
-      if (methodObj.servers?.length > 0) servers = _getServers(methodObj.servers);
-      Object.keys(methodObj ?? {})
-        .filter((key) => operations.includes(key))
-        .forEach((method) => {
-          const pathItemObj : any = methodObj[method as keyof typeof methodObj];
-          if (pathItemObj.servers?.length > 0) servers = _getServers(pathItemObj.servers);
-          servers.forEach(prefix => {
-            app[method as keyof typeof app](
-              (prefix + path).replace(/\/\//g, "/"), 
-              (req : any, res: any, next : any) => {
-                req.route.path = req.route.path.replace(prefix, prefix === "/" ? "/" : "");
-                this.#middleware(req, res, next);
-              }
-            );
-          });
+    const methodObj : any = this.#oasFile.paths[path];
+    
+    if (methodObj.servers?.length > 0) servers = _getServers(methodObj.servers);
+    Object.keys(methodObj ?? {})
+      .filter((key) => operations.includes(key))
+      .forEach((method) => {
+        const pathItemObj : any = methodObj[method as keyof typeof methodObj];
+        if (pathItemObj.servers?.length > 0) servers = _getServers(pathItemObj.servers);
+        servers.forEach(prefix => {
+          app[method as keyof typeof app](
+            (prefix + path).replace(/\/\//g, "/"), 
+            (req : any, res: any, next : any) => {
+              req.route.path = req.route.path.replace(prefix, prefix === "/" ? "/" : "");
+              this.#middleware(req, res, next);
+            }
+          );
         });
-    });
+      });
   }
 
   initialize(oasFile: OpenAPIV3Doc, _config: object) {
